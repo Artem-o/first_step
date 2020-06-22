@@ -1,3 +1,4 @@
+'use strict';
 
 const numberOfFilms = +prompt('сколько фильмов вы уже посмотрели?', "");
 
@@ -9,14 +10,28 @@ const obj = {
     privat: false
 };
 
-const questionOne = prompt('Один из последних просмотренных фильмов?', ""),
-      questionTwo = +prompt('Дайте ему оценку?', ""),
-      questionThree = prompt('Один из последних просмотренных фильмов?', ""),
-      questionFour = +prompt('Дайте ему оценку?', "");
 
+for (let i = 1; i < 3; i++) {
+    const lastMovie = prompt('Один из последних просмотренных фильмов?', ""),
+          rating = +prompt('Дайте ему оценку?', ""); 
 
-obj.movies[questionOne] = questionTwo;
-obj.movies[questionThree] = questionFour;
+    if ( (lastMovie == false || rating == false) || (lastMovie == null || rating == null) || (lastMovie.length > 50 || rating.length > 50) ) {
+        i--;
+    } else {
+        obj.movies[lastMovie] = rating;
+    }
+    
+}
+
+if (obj.count <= 10) {
+    console.log('Просмотрено довольно мало фильмов');
+} else if (obj.count > 10 && obj.count <= 30) {
+    console.log('Вы классический зритель');
+} else if (obj.count > 30) {
+    console.log('Вы киноман');
+} else {
+    console.log('Произошла ошибка');
+}
 
 console.log(obj);
 
