@@ -1,5 +1,5 @@
 
-const numberOfFilms = prompt('сколько фильмов вы уже посмотрели?');
+const numberOfFilms = prompt('сколько фильмов вы уже посмотрели?', "");
 
 const obj = {
     count: numberOfFilms,
