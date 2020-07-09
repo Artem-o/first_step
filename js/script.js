@@ -7,7 +7,7 @@ const personalMovieDB = {
     movies: {},
     actors: {},
     genres: [],
-    privat: false,
+    privat: true,
     
     start: function() {
         personalMovieDB.count = +prompt('сколько фильмов вы уже посмотрели?', "");
@@ -74,6 +74,38 @@ const personalMovieDB = {
         });
     }
 };
+
+
+const movieDB = {
+    movies: [
+        "Логан",
+        "Лига справедливости",
+        "Ла-ла лэнд",
+        "Одержимость",
+        "Скотт Пилигрим против..."
+    ]
+};
+
+const promoAdvImg = document.querySelectorAll('.promo__adv img'),
+      promoGenres = document.querySelector('.promo__genre'),
+      promoBg = document.querySelector('.promo__bg'),
+      promoInteractiveItem = document.querySelectorAll('.promo__interactive-item');
+
+promoAdvImg.forEach(item => {
+    item.remove();
+});
+
+promoGenres.textContent = 'ДРАМА';
+promoBg.style.cssText = "background: url(img/bg.jpg);";
+
+
+movieDB.movies.sort();
+
+for (let i = 0; i < movieDB.movies.length; i++) {
+    promoInteractiveItem[i].textContent = `${i + 1} ${movieDB.movies[i]}`;
+}
+
+
 
 
 
